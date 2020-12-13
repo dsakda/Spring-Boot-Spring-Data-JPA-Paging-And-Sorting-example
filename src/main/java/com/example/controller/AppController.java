@@ -3,6 +3,7 @@ package com.example.controller;
 import com.example.model.Product;
 import com.example.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +22,21 @@ public class AppController {
 
     @GetMapping("/")
     public String viewHomePage(Model model){
-        List<Product> listProducts = service.listAll();
+        return viewPage(model,1);
+    }
+
+    @GetMapping("/page/{pageNum}")
+    public String viewPage(Model model, @PathVariable(name = "pageNum") int pageNum) {
+
+        Page<Product> page = service.listAll(pageNum);
+
+        List<Product> listProducts = page.getContent();
+
+        model.addAttribute("currentPage", pageNum);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
         model.addAttribute("listProducts", listProducts);
+
         return "index";
     }
 
