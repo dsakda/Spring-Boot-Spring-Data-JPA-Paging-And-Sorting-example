@@ -18,10 +18,6 @@ public class ProductService {
     @Autowired
     private ProductRepository repo;
 
-//    public List<Product> listAll() {
-//        return repo.findAll();
-//    }
-
     public Page<Product> listAll(int pageNum) {
         int pageSize = 5;
         Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
