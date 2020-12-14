@@ -36,6 +36,26 @@
         </tr>
         </tbody>
     </table>
+    <p>
+        <b>Total Items: [[${totalItems}]]</b>
+        <a th:if="${currentPage > 1}" th:href="@{'/page/1'}">First</a>
+        <span th:unless="${currentPage > 1}">First</span>
+
+        <a th:if="${currentPage > 1}" th:href="@{'/page/' + ${currentPage - 1}}">Previous</a>
+        <span th:unless="${currentPage > 1}">Previous</span>
+
+        <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+            <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}}">[[${i}]]</a>
+            <span th:unless="${currentPage != i}">[[${i}]]</span>&nbsp;
+        </span>
+
+        <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}}">Next</a>
+        <span th:unless="${currentPage < totalPages}">Next</span>
+
+        <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}}">Last</a>
+        <span th:unless="${currentPage < totalPages}">Last</span>
+
+    </p>
 </div>
 </body>
 </html>
