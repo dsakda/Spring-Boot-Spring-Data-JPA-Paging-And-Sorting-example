@@ -13,11 +13,21 @@
     <table border="1" cellpadding="10">
         <thead>
         <tr>
-            <th>Product ID</th>
-            <th>Name</th>
-            <th>Brand</th>
-            <th>Made In</th>
-            <th>Price</th>
+            <th>
+                <a th:href="@{'/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${reverseSortDir}}">Product ID</a>
+            </th>
+            <th>
+                <a th:href="@{'/page/' + ${currentPage} + '?sortField=name&sortDir=' + ${reverseSortDir}}">Name</a>
+            </th>
+            <th>
+                <a th:href="@{'/page/' + ${currentPage} + '?sortField=brand&sortDir=' + ${reverseSortDir}}">Brand</a>
+            </th>
+            <th>
+                <a th:href="@{'/page/' + ${currentPage} + '?sortField=madein&sortDir=' + ${reverseSortDir}}">Made In</a>
+            </th>
+            <th>
+                <a th:href="@{'/page/' + ${currentPage} + '?sortField=price&sortDir=' + ${reverseSortDir}}">Price</a>
+            </th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -36,6 +46,7 @@
         </tr>
         </tbody>
     </table>
+    <div><i>Sorted by [[${sortField}]] in [[${sortDir}]] order</i></div>
     <p>
         <b>Total Items: [[${totalItems}]]</b>
         <a th:if="${currentPage > 1}" th:href="@{'/page/1'}">First</a>
