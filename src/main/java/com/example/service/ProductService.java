@@ -19,7 +19,7 @@ public class ProductService {
     private ProductRepository repo;
 
     public Page<Product> listAll(int pageNum) {
-        int pageSize = 5;
+        int pageSize = 15;
         Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
         return repo.findAll(pageable);
     }
