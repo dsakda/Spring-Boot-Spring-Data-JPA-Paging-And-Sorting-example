@@ -23,7 +23,7 @@ public class AppController {
 
     @GetMapping("/")
     public String viewHomePage(Model model){
-        return viewPage(model,1, "name", "asc");
+        return viewPage(model,1, "id", "asc");
     }
 
     @GetMapping("/page/{pageNum}")
