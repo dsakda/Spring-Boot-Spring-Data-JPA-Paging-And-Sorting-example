@@ -49,21 +49,21 @@
     <div><i>Sorted by [[${sortField}]] in [[${sortDir}]] order</i></div>
     <p>
         <b>Total Items: [[${totalItems}]]</b>
-        <a th:if="${currentPage > 1}" th:href="@{'/page/1' + '?sortField=' + ${sortField} + '&sortDir=' + ${reverseSortDir}}">First</a>
+        <a th:if="${currentPage > 1}" th:href="@{'/page/1' + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">First</a>
         <span th:unless="${currentPage > 1}">First</span>
 
-        <a th:if="${currentPage > 1}" th:href="@{'/page/' + ${currentPage - 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${reverseSortDir}}">Previous</a>
+        <a th:if="${currentPage > 1}" th:href="@{'/page/' + ${currentPage - 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Previous</a>
         <span th:unless="${currentPage > 1}">Previous</span>
 
         <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-            <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' + ${reverseSortDir}}">[[${i}]]</a>
+            <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
             <span th:unless="${currentPage != i}">[[${i}]]</span>&nbsp;
         </span>
 
-        <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${reverseSortDir}}">Next</a>
+        <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
         <span th:unless="${currentPage < totalPages}">Next</span>
 
-        <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${reverseSortDir}}">Last</a>
+        <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
         <span th:unless="${currentPage < totalPages}">Last</span>
 
     </p>
