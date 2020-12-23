@@ -16,12 +16,8 @@ import java.util.List;
 @Transactional
 public class ProductService {
 
-    private ProductRepository repo;
-
     @Autowired
-    public ProductService(ProductRepository repo) {
-        this.repo = repo;
-    }
+    private ProductRepository repo;
 
     public Page<Product> listAll(int pageNum, String sortField, String sortDir) {
         int pageSize = 15;
