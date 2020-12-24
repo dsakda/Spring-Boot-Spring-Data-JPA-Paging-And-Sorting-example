@@ -1,5 +1,4 @@
-## Spring-Boot-Spring-Data-JPA-Paging-And-Sorting-example
-### Spring Boot MVC - Spring Data JPA paging and sorting example
+## Spring Boot MVC - Spring Data JPA paging and sorting example
 
 ### Controller
 ```java
